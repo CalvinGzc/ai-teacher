@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 滚动条样式 */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded;
+}
+
+/* 深色模式基础样式 */
+.dark {
+  @apply bg-[#17171F] text-white;
+}
+
+/* 聊天消息样式 */
+.chat-message {
+  @apply text-gray-800 dark:text-gray-100;
+}
+
+/* 过渡效果 */
+.theme-transition {
+  @apply transition-colors duration-200;
+}
