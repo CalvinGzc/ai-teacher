@@ -7,6 +7,7 @@ import Register from '../components/Register';
 import Settings from '../components/Settings';
 import { sendChatMessage } from '../utils/api';
 import { loginUser, registerUser, logoutUser, getCurrentUser, saveUserFolders } from '../utils/auth';
+import { importUserData, exportUserData } from '../utils/userDataUtils';
 
 interface User {
   id: string;
@@ -128,7 +129,7 @@ export default function Home() {
   const handleSendMessage = async () => {
     if (!inputMessage.trim() || !activeFolder || isLoading) return;
 
-    // 创建用户消息
+    // 创��用户消息
     const userMessage = {
       role: 'user' as const,
       content: inputMessage.trim()
@@ -181,16 +182,7 @@ export default function Home() {
     }
   };
 
-  // 定义导出函数
-  const exportUserData = (userId: string) => {
-    const data = {
-      userId,
-      exportDate: new Date().toISOString(),
-      // 如果需要导出更多用户相关数据，可以在这里添加
-    };
-    return JSON.stringify(data, null, 2);
-  };
-
+  // 直接使用从 utils/userDataUtils 导入的函数
   const handleExportData = () => {
     if (!user) return;
     const data = exportUserData(user.id);
