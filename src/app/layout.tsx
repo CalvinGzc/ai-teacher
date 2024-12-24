@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { GeistSans, GeistMono } from 'geist/font'
 import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] });
+const geistSans = GeistSans
+const geistMono = GeistMono
 
 export const metadata: Metadata = {
   title: "AI 老师",
@@ -16,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="zh">
-      <body className={inter.className}>
+      <body className={geistSans.className}>
         {children}
       </body>
     </html>
